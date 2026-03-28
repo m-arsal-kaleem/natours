@@ -28,6 +28,8 @@ router.patch(
   authController.updatePassword,
 );
 
+router.patch('/updateMe', authController.protect, userController.UpdateMe);
+
 router
   .route('/')
   .get(userController.getAllUsers)
