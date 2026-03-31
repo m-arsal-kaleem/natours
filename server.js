@@ -1,6 +1,6 @@
 const dotenv = require('dotenv');
 
-dotenv.config({ path: './config.env' });
+dotenv.config({ path: './config.env', quiet: true });
 const mongoose = require('mongoose');
 
 // Unhandled Exception

@@ -1,8 +1,8 @@
 const Review = require('../models/reviewModel');
-
+const catchAsync = require('../utils/catchAsync');
 // Review Routes
 
-exports.getAllReviews = async (req, res, next) => {
+exports.getAllReviews = catchAsync(async (req, res, next) => {
   const reviews = await Review.find();
 
   // Send Response
@@ -11,9 +11,9 @@ exports.getAllReviews = async (req, res, next) => {
     results: reviews.length,
     reviews,
   });
-};
+});
 
-exports.createReview = async (req, res, next) => {
+exports.createReview = catchAsync(async (req, res, next) => {
   const newReview = await Review.create(req.body);
 
   res.status(201).json({
@@ -22,4 +22,4 @@ exports.createReview = async (req, res, next) => {
       review: newReview,
     },
   });
-};
+});
