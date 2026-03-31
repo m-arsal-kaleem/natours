@@ -5,7 +5,6 @@ const catchAsync = require('../utils/catchAsync');
 
 //Tour Routes
 //
-
 //Top 5 cheap tours
 exports.aliasTopTours = (req, res, next) => {
   req.query.limit = '5';
