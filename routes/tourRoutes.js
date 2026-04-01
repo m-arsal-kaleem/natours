@@ -1,6 +1,8 @@
 const express = require('express');
 const tourController = require('../controllers/tourController');
 const authController = require('../controllers/authController');
+const reviewRouter = require('./reviewRoutes');
+//const reviewController = require('../controllers/reviewController');
 
 //Simple .get , .post
 //
@@ -23,6 +25,23 @@ const authController = require('../controllers/authController');
 // Using express.Router()
 //
 const router = express.Router();
+
+//Nested Routes logix
+//
+// POST /tour/2313/reviews
+// GET /tour/23232/reviews
+// GET /tour/32132/reviews/32312
+
+// Nested Route
+// router
+//   .route('/:tourId/reviews')
+//   .post(
+//     authController.protect,
+//     authController.restrictTo('user'),
+//     reviewController.createReview,
+//   );
+
+router.use('/:tourId/reviews', reviewRouter);
 
 // Param Middleware (will only run when id is passed on tour url)
 //router.param('id', tourController.checkId);
