@@ -12,6 +12,11 @@ const filterObj = (obj, ...allowedFields) => {
   return newObj;
 };
 
+exports.getMe = (req, res, next) => {
+  req.params.id = req.user.id;
+  next();
+};
+
 exports.UpdateMe = catchAsync(async (req, res, next) => {
   // 1) Crate error is user POST's password data
   if (req.body.password || req.body.passwordConfirm) {
