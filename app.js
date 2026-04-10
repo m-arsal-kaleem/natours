@@ -81,8 +81,20 @@ app.use((req, res, next) => {
 // To render the base
 app.get('/', (req, res, next) => {
   res.status(200).render('base', {
-    tour: 'The Good Tour',
+    tour: 'The Forest Hiker',
     user: 'TestUser',
+  });
+});
+
+app.get('/overview', (req, res) => {
+  res.status(200).render('overview', {
+    title: 'All tours',
+  });
+});
+
+app.get('/tour', (req, res) => {
+  res.status(200).render('overview', {
+    title: 'The Forest Hiker',
   });
 });
 
